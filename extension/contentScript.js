@@ -1,14 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './app.js';
+(function(){
+  const root = document.createElement('div');
+  root.id = 'sgb-root';
+  document.body.appendChild(root);
 
-const root = document.createElement('div');
-root.id = 'sgb-root';
-document.body.appendChild(root);
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = chrome.runtime.getURL('style.css');
+  document.head.appendChild(link);
 
-const link = document.createElement('link');
-link.rel = 'stylesheet';
-link.href = chrome.runtime.getURL('style.css');
-document.head.appendChild(link);
+  function loadScript(src) {
+    return new Promise((resolve) => {
+      const s = document.createElement('script');
+      s.src = src;
+      s.onload = resolve;
+      document.body.appendChild(s);
+    });
+  }
 
-ReactDOM.render(React.createElement(App), root);
+  async function init(){
+    await loadScript(chrome.runtime.getURL('libs/react.min.js'));
+    await loadScript(chrome.runtime.getURL('libs/react-dom.min.js'));
+    await loadScript(chrome.runtime.getURL('app.js'));
+  }
+
+  init();
+})();
