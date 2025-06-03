@@ -3,11 +3,6 @@
   root.id = 'sgb-root';
   document.body.appendChild(root);
 
-  const link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = chrome.runtime.getURL('style.css');
-  document.head.appendChild(link);
-
   function loadScript(src) {
     return new Promise((resolve) => {
       const s = document.createElement('script');
