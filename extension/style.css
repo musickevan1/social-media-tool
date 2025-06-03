@@ -1,0 +1,80 @@
+#sgb-root {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 300px;
+  background: #1e1e1e;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+  z-index: 9999;
+}
+.sgb-app {
+  display: flex;
+  height: 100%;
+}
+.sidebar {
+  width: 80px;
+  background: #2a2a2a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+}
+.side-item {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 12px;
+  text-align: center;
+  color: #bbb;
+}
+.side-item.active {
+  background: #444;
+  color: #fff;
+}
+.main-panel {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+.tool-panel .field {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.tool-panel input[type="text"],
+.tool-panel input[type="number"] {
+  width: 100%;
+  padding: 5px;
+  background: #333;
+  color: #fff;
+  border: 1px solid #555;
+}
+.controls button {
+  margin-right: 5px;
+  padding: 5px 10px;
+}
+.log {
+  max-height: 150px;
+  overflow-y: auto;
+  background: #111;
+  padding: 5px;
+  border: 1px solid #333;
+  margin-top: 10px;
+}
+.log-entry {
+  font-size: 11px;
+  border-bottom: 1px solid #222;
+  padding: 2px 0;
+}
+.clear-btn {
+  margin-top: 5px;
+  padding: 3px 6px;
+  font-size: 12px;
+}
+.coming-soon {
+  padding: 20px;
+  font-style: italic;
+  color: #888;
+}
