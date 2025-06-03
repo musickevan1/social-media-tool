@@ -130,5 +130,6 @@
     ]);
   }
 
-  ReactDOM.render(e(App), document.getElementById('sgb-root'));
+  // Expose the App component so it can be mounted by the content script
+  window.SGBApp = App;
 })();
