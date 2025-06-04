@@ -4,14 +4,23 @@ const e = React.createElement;
 
 export function useChromeStorage(key, defaultValue) {
   const [value, setValue] = React.useState(defaultValue);
+  const [initialized, setInitialized] = React.useState(false);
+
   React.useEffect(() => {
     chrome.storage.local.get([key], (res) => {
-      if (res[key] !== undefined) setValue(res[key]);
+      if (res[key] !== undefined) {
+        setValue(res[key]);
+      }
+      setInitialized(true);
     });
   }, []);
+
   React.useEffect(() => {
-    chrome.storage.local.set({ [key]: value });
-  }, [value]);
+    if (initialized) {
+      chrome.storage.local.set({ [key]: value });
+    }
+  }, [value, initialized]);
+
   return [value, setValue];
 }
 
