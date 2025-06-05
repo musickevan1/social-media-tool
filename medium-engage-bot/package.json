@@ -1,0 +1,18 @@
+{
+  "name": "medium-engage-bot",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "lint": "eslint . --fix"
+  },
+  "dependencies": {
+    "puppeteer": "^21.0.0",
+    "dotenv": "^16.0.0",
+    "fs-extra": "^11.1.1",
+    "dayjs": "^1.11.9"
+  },
+  "devDependencies": {
+    "eslint": "^8.50.0"
+  }
+}
